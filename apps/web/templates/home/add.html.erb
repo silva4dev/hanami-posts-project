@@ -1,0 +1,19 @@
+<div class="container">
+
+    <h5 class="mb-2">Cadastrar uma postagem</h5>
+    <hr />
+
+    <div class="card">
+        <div class="card-content">
+            <%= form_for :post, routes.path(:create_path) do
+                label :Titulo
+                text_field :title, class: 'validate', autocomplete: 'off'
+                label :Conteudo
+                text_area :content, class: 'materialize-textarea', autocomplete: 'off', 
+                style: 'height: 200px; overflow-y:scroll'
+                submit 'Cadastrar', class: 'btn'
+            end %>
+        </div>
+    </div>
+    
+</div>

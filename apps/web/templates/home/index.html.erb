@@ -1,0 +1,22 @@
+<div class="container"> 
+
+    <h5>Explore nossas perguntas</h5>
+    <%= link_to 'Cadastrar uma postagem', routes.path(:add_path), class: 'btn' %>
+    <hr />
+
+    <% posts.each do |post| %>
+        <div class="card grey darken-2">
+            <div class="card-content white-text">
+                <span class="card-title"><%= post.title %></span>
+                <p><%= post.content %></p>
+                <hr />
+                <%= form_for :post, routes.path(:delete_path), method: :delete, style: 'display:inline' do 
+                submit 'Deletar', class: 'btn red'
+                hidden_field :id, value: post.id
+                end %>
+                <%= link_to 'Editar', routes.path(:show_path, post.id), class: 'btn orange' %>
+            </div>
+        </div>
+   <% end %>
+
+</div>
